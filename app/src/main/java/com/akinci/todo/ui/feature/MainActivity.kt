@@ -1,4 +1,4 @@
-package com.akinci.todo
+package com.akinci.todo.ui.feature
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

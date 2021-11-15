@@ -1,6 +1,8 @@
 plugins {
+    id 'kotlin-kapt'
     id 'com.android.application'
     id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -38,7 +40,7 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerVersion '1.5.31'
     }
     packagingOptions {
         resources {
@@ -49,17 +51,47 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.appcompat:appcompat:1.3.1"
+    implementation "com.google.android.material:material:1.4.0"
+    implementation "androidx.activity:activity-compose:1.4.0"
+
+    // Compose
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.0-alpha06'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"          // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"      // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"           // LiveData
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"            // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"   // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"           // alternately - if using Java8, use the following instead of lifecycle-compiler
+    //kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"                         // Annotation processor
+    //implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"                // optional - helpers for implementing LifecycleOwner in a Service
+    //implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"                // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    //testImplementation "androidx.arch.core:core-testing:$arch_version"                      // optional - Test helpers for LiveData
+
+    // HILT
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+
+    // Timber logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Image Loading with coil
+    implementation "io.coil-kt:coil-compose:1.4.0"
+
+    // Testing
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+}
+
+kapt {
+    correctErrorTypes = true
 }
