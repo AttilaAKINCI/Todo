@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
         <activity
-            android:name=".ui.feature.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Todo.NoActionBar">
