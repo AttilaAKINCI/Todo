@@ -1,5 +1,9 @@
 package com.akinci.todo.ui.components
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.akinci.todo.ui.theme.TodoTheme
+
 /**
  *
  *  This file contains components which are used app wide.
@@ -7,10 +11,10 @@ package com.akinci.todo.ui.components
  *
  * **/
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    TodoTheme {
-//        Greeting("Android")
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun PageNavigator_Preview() {
+    TodoTheme {
+        PageNavigator(onClick = { })
+    }
+}

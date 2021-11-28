@@ -1,19 +1,25 @@
 package com.akinci.todo.ui.feature.splash
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.akinci.todo.R
+import com.akinci.todo.ui.components.PageNavigator
 import com.akinci.todo.ui.theme.TodoTheme
 
 @Composable
-fun SplashScreenBody(name: String) {
-    Text(text = "Splash Screen $name")
+fun SplashScreenBody(
+    onClick : ()->Unit
+) {
+    PageNavigator(
+        R.string.splash_page,
+        onClick = onClick
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     TodoTheme {
-        SplashScreenBody("Android")
+        SplashScreenBody(onClick = { })
     }
 }

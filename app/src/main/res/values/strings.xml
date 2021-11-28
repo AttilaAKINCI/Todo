@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Todo</string>
+
+    <string name="splash_page">Splash Page</string>
+    <string name="login_page">Login Page</string>
+    <string name="dashboard_page">Dashboard Page</string>
+    <string name="note_page">Note Page</string>
+
+    <string name="welcome_message">...Welcome...</string>
+    <string name="button_next_page">Navigate to Next Page</string>
 </resources>

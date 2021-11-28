@@ -52,7 +52,7 @@ android {
 dependencies {
 
     implementation "androidx.core:core-ktx:1.7.0"
-    implementation "androidx.appcompat:appcompat:1.3.1"
+    implementation "androidx.appcompat:appcompat:1.4.0"
     implementation "com.google.android.material:material:1.4.0"
     implementation "androidx.activity:activity-compose:1.4.0"
 
@@ -76,7 +76,7 @@ dependencies {
     // HILT
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-beta01'
 
     // Timber logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
