@@ -8,4 +8,12 @@
 
     <string name="welcome_message">...Welcome...</string>
     <string name="button_next_page">Navigate to Next Page</string>
+
+
+    <!-- COMPONENTS -->
+    <!-- Offline Dialog    -->
+    <string name="connection_error_title">Connection error</string>
+    <string name="connection_error_message">Unable to fetch podcasts feeds.\nCheck your internet connection and try again.</string>
+    <string name="retry_label">Retry</string>
+
 </resources>

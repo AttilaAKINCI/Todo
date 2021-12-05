@@ -13,8 +13,16 @@ import com.akinci.todo.ui.theme.TodoTheme
 
 @Preview(showBackground = true)
 @Composable
-fun PageNavigator_Preview() {
+fun Catalog_PageNavigator() {
     TodoTheme {
         PageNavigator(onClick = { })
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun Catalog_OfflineDialog() {
+    TodoTheme {
+        OfflineDialog(onRetry = { })
     }
 }

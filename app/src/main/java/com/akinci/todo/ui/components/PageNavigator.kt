@@ -35,7 +35,7 @@ fun PageNavigator(
 
 @Preview(showBackground = true)
 @Composable
-fun PageNavigatorPreview() {
+fun PreviewPageNavigator() {
     TodoTheme {
         PageNavigator(onClick = { })
     }
