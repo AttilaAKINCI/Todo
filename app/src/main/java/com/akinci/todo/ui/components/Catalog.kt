@@ -2,6 +2,7 @@ package com.akinci.todo.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.akinci.todo.common.network.NetworkState
 import com.akinci.todo.ui.theme.TodoTheme
 
 /**
@@ -23,6 +24,9 @@ fun Catalog_PageNavigator() {
 @Composable
 fun Catalog_OfflineDialog() {
     TodoTheme {
-        OfflineDialog(onRetry = { })
+        OfflineDialog(
+            networkState = NetworkState.NotConnected, // NetworkState.Connected, NetworkState.None
+            onRetry = { }
+        )
     }
 }

@@ -12,8 +12,8 @@
 
     <!-- COMPONENTS -->
     <!-- Offline Dialog    -->
-    <string name="connection_error_title">Connection error</string>
-    <string name="connection_error_message">Unable to fetch podcasts feeds.\nCheck your internet connection and try again.</string>
+    <string name="connection_error_title">Network Connection Error</string>
+    <string name="connection_error_message">This page requires network connection and we detect that your connection is lost. Please try again  </string>
     <string name="retry_label">Retry</string>
 
 </resources>

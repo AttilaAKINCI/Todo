@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.akinci.todo.common.base.BaseActivity
+import com.akinci.todo.ui.components.NetworkDependentScreen
 import com.akinci.todo.ui.components.OfflineDialog
 import com.akinci.todo.ui.feature.dashboard.DashboardScreenBody
 import com.akinci.todo.ui.feature.login.LoginScreenBody
@@ -52,33 +53,26 @@ fun MainNavHost(
     appState: TodoAppState,
     modifier: Modifier = Modifier
 ){
-    if(appState.mainViewModel.isNetworkAvailable){
-        NavHost(
-            navController = appState.navController,
-            startDestination = Navigation.Splash.route,
-            modifier = modifier
-        ){
+    NavHost(
+        navController = appState.navController,
+        startDestination = Navigation.Splash.route,
+        modifier = modifier
+    ){
 
-            /**
-             * TODO navigation between screen should be provided with lambda function actions.
-             *  do not pass navController inside. and entire navController logic
-             *  should stay in the same file.
-             * **/
-
-            composable(route = Navigation.Splash.route){
-                SplashScreenBody(onClick = { appState.navigate(Navigation.Login, it) })
-            }
-            composable(route = Navigation.Login.route){
-                LoginScreenBody(onClick = { appState.navigate(Navigation.Dashboard, it) })
-            }
-            composable(route = Navigation.Dashboard.route){
+        composable(route = Navigation.Splash.route){
+            SplashScreenBody(onClick = { appState.navigate(Navigation.Login, it) })
+        }
+        composable(route = Navigation.Login.route){
+            LoginScreenBody(onClick = { appState.navigate(Navigation.Dashboard, it) })
+        }
+        composable(route = Navigation.Dashboard.route){
+            /** For a trial Dashboard Screen is marked as "Network Dependent Screen" (NDS) **/
+            NetworkDependentScreen(appState = appState) {
                 DashboardScreenBody(onClick = { appState.navigate(Navigation.Note, it) })
             }
-            composable(route = Navigation.Note.route){
-                NoteScreenBody(onClick = { appState.navigateBack() })
-            }
         }
-    } else {
-        OfflineDialog { appState.mainViewModel.checkNetwork() }
+        composable(route = Navigation.Note.route){
+            NoteScreenBody(onClick = { appState.navigateBack() })
+        }
     }
 }
