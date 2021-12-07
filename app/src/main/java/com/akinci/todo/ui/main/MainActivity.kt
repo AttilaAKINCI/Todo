@@ -67,7 +67,7 @@ fun MainNavHost(
         }
         composable(route = Navigation.Dashboard.route){
             /** For a trial Dashboard Screen is marked as "Network Dependent Screen" (NDS) **/
-            NetworkDependentScreen(appState = appState) {
+            NetworkDependentScreen(retryAction = { appState.navigateBack() }) {
                 DashboardScreenBody(onClick = { appState.navigate(Navigation.Note, it) })
             }
         }

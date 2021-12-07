@@ -16,14 +16,14 @@ import com.akinci.todo.ui.main.util.TodoAppState
 @Composable
 fun NetworkDependentScreen(
     modifier: Modifier = Modifier,
-    appState: TodoAppState,
+    retryAction: () -> Unit,
     networkStateViewModel: NetworkStateViewModel = hiltViewModel(),
     content: @Composable () -> Unit
 ) {
     val networkState by networkStateViewModel.networkState.collectAsState(initial = NetworkState.None)
 
     Box(modifier = modifier){
-        OfflineDialog(networkState = networkState) { appState.navigateBack() }
+        OfflineDialog(networkState = networkState) { retryAction() }
         content()
     }
 }

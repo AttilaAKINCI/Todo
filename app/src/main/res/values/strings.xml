@@ -8,6 +8,7 @@
 
     <string name="welcome_message">...Welcome...</string>
     <string name="button_next_page">Navigate to Next Page</string>
+    <string name="button_prev_page">Navigate to Previous Page</string>
 
 
     <!-- COMPONENTS -->

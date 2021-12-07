@@ -15,10 +15,12 @@ class NetworkChecker constructor(
     private val _networkState = MutableStateFlow<NetworkState>(NetworkState.None)
     val networkState: StateFlow<NetworkState> = _networkState
 
-    private val validTransportTypes = listOf(
-        NetworkCapabilities.TRANSPORT_WIFI,
-        NetworkCapabilities.TRANSPORT_CELLULAR
-    )
+    private val validTransportTypes by lazy {
+        listOf(
+            NetworkCapabilities.TRANSPORT_WIFI,
+            NetworkCapabilities.TRANSPORT_CELLULAR
+        )
+    }
 
     private val networkCallback by lazy {
         object : ConnectivityManager.NetworkCallback() {
@@ -55,12 +57,10 @@ class NetworkChecker constructor(
         }
 
         /** update stateflow when status changed. **/
-        connectivityManager.registerNetworkCallback(
-            NetworkRequest.Builder()
-                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                .build(),
-            networkCallback
-        )
+        val builder = NetworkRequest.Builder().apply {
+            validTransportTypes.onEach { addTransportType(it) }
+        }
+
+        connectivityManager.registerNetworkCallback(builder.build(), networkCallback)
     }
 }

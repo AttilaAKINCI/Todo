@@ -15,6 +15,7 @@ import com.akinci.todo.ui.theme.TodoTheme
 @Composable
 fun PageNavigator(
     navigatorMessageId: Int = R.string.welcome_message,
+    navigateButtonMessageId: Int = R.string.button_next_page,
     onClick : ()->Unit
 ) {
     Column(
@@ -28,7 +29,7 @@ fun PageNavigator(
         Button(
             onClick = onClick
         ) {
-            Text(text = stringResource(R.string.button_next_page))
+            Text(text = stringResource(id = navigateButtonMessageId))
         }
     }
 }

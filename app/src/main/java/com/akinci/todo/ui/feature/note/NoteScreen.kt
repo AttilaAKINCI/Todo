@@ -11,7 +11,8 @@ fun NoteScreenBody(
     onClick : ()->Unit
 ) {
     PageNavigator(
-        R.string.note_page,
+        navigatorMessageId = R.string.note_page,
+        navigateButtonMessageId = R.string.button_prev_page,
         onClick = onClick
     )
 }
